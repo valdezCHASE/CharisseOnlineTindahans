@@ -1,0 +1,224 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 15px;
+}
+
+header {
+  background-color: #008080;
+  color: white;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+nav {
+  margin-top: 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: transform 0.3s ease, font-weight 0.3s ease, background-color 0.3s ease, padding 0.3s ease;
+  padding: 4px 8px; /* default padding para smooth */
+  border-radius: 4px; /* rounded corners ng box */
+}
+
+nav a:hover {
+  text-decoration: none;
+  transform: scale(1.2);
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.2); /* light transparent white box */
+  padding: 6px 12px; /* dagdag padding habang naka-hover para di masikip yung box */
+  box-shadow: 0 0 8px rgba(255,255,255,0.6); /* subtle glow */
+}
+
+.banner {
+  background: url('bannersale.jpg') no-repeat center center/cover;
+  padding: 60px 20px;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.banner-content {
+  position: relative;
+  z-index: 1;
+}
+
+.banner-btn {
+  background-color: #00a3a3;
+  color: white;
+  padding: 12px 24px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.banner-btn:hover {
+  background-color: #006666;
+  transform: scale(1.05);
+}
+
+.footer-columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: #e8f5e9;
+  padding: 30px;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 180px;
+  margin: 10px;
+}
+
+.footer-column h4 {
+  color: #008080;
+}
+
+.footer-column a {
+  display: block;
+  margin: 5px 0;
+  text-decoration: none;
+  color: #333;
+}
+
+.footer-column a:hover {
+  text-decoration: underline;
+}
+
+.social-icons img {
+  width: 24px;
+  margin-right: 10px;
+}
+
+.newsletter-form input {
+  padding: 8px;
+  width: 70%;
+  max-width: 250px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.newsletter-form button {
+  padding: 8px 12px;
+  background-color: #008000;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+footer {
+  background-color: #d0f0d0;
+  text-align: center;
+  padding: 15px;
+}
+
+/* Chat Button */
+.chat-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #008080;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+/* Chat Box Styles */
+#chat-box {
+  display: none;
+  position: fixed;
+  bottom: 70px;
+  right: 20px;
+  width: 300px;
+  max-height: 400px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  flex-direction: column;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  overflow: hidden;
+  z-index: 1001;
+}
+
+#chat-header {
+  background-color: #008080;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#chat-messages {
+  padding: 10px;
+  flex-grow: 1;
+  overflow-y: auto;
+  font-size: 14px;
+}
+
+#chat-input-container {
+  display: flex;
+  border-top: 1px solid #ccc;
+}
+
+#chat-input {
+  flex-grow: 1;
+  border: none;
+  padding: 10px;
+  font-size: 14px;
+}
+
+#chat-input:focus {
+  outline: none;
+}
+
+#chat-send {
+  background-color: #008080;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+}

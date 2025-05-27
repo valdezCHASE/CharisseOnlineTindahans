@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Online Tindahan - Home</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+
+    header {
+      background-color: #008080;
+      color: white;
+      padding: 20px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .intro-message {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 30px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .intro-message img {
+      width: 100px;
+      height: auto;
+    }
+
+    .speech-bubble {
+      position: relative;
+      background: #e0f7fa;
+      padding: 20px;
+      border-radius: 15px;
+      font-style: italic;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .speech-bubble::after {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: -20px;
+      width: 0;
+      height: 0;
+      border: 10px solid transparent;
+      border-right-color: #e0f7fa;
+    }
+
+    .banner {
+      height: 450px;
+      background: url('bannersale.jpg') no-repeat center center/cover;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 0 20px;
+    }
+
+    .banner::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+
+    .banner-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .banner h2 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .banner p {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .banner-btn {
+      background-color: #00a3a3;
+      color: white;
+      padding: 12px 24px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .banner-btn:hover {
+      background-color: #006666;
+      transform: scale(1.05);
+    }
+
+    .featured-products {
+      padding: 40px 20px;
+      background-color: #f1f8f6;
+      text-align: center;
+    }
+
+    .featured-products h3 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: #008080;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .product-item {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+      text-decoration: none;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 15px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 15px rgb(0 0 0 / 0.2);
+    }
+
+    .product-item img {
+      width: 100%;
+      height: 140px;
+      object-fit: contain;
+      margin-bottom: 12px;
+      border-radius: 6px;
+    }
+
+    .product-item span {
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .store-moto {
+      text-align: center;
+      padding: 30px 20px;
+      background-color: #e6f2f2;
+    }
+
+    .store-moto h4 {
+      font-size: 1.4rem;
+      color: #008080;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-title">
+      <img src="logocha-removebg-preview.png" alt="Logo" class="logo" />
+      <h1>Online Tindahan</h1>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="cart.html">Cart</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <video autoplay muted loop playsinline style="width:100%; max-height:300px; object-fit:cover; display:block;">
+  <source src="sari.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+  <!-- Cha Speaking with Bubble -->
+  <section class="intro-message">
+    <img src="logocha-removebg-preview.png" alt="Cha" />
+    <div class="speech-bubble">
+      <p>"Hello po! Ako nga pala si Cha. Dito sa Online Tindahan, siguradong abot-kaya at quality ang mga bilihin. Maraming salamat sa tiwala at happy shopping!"</p>
+    </div>
+  </section>
+
+  <!-- Main Banner -->
+  <section class="banner">
+    <div class="banner-content">
+      <h2>Welcome to Online Tindahan!</h2>
+      <p>Your one-stop shop for amazing deals!</p>
+      <a href="products.html" class="banner-btn">Shop Now</a>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="featured-products">
+    <h3>Featured Products</h3>
+    <div class="product-grid">
+      <a href="product1.html" class="product-item">
+        <img src="chips.webp" alt="Product 1" />
+        <span>Piattos</span>
+      </a>
+      <a href="product2.html" class="product-item">
+        <img src="softdrinks.jpeg" alt="Product 2" />
+        <span>softdrinks</span>
+      </a>
+      <a href="product3.html" class="product-item">
+        <img src="biscuits1.jpg" alt="Product 3" />
+        <span>Biscuits</span>
+      </a>
+      <a href="product4.html" class="product-item">
+        <img src="soapandhsampoo-removebg-preview.png" alt="Product 4" />
+        <span>Soap and Shampoo</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Store Moto in Tagalog -->
+  <section class="store-moto">
+    <h4>🛒 “Sa Online Tindahan, hindi lang basta mura — garantisadong sulit at kalidad!” 💬</h4>
+  </section>
+
+
+  <!-- Footer columns and chat button here, your existing code below -->
+
+  <div class="footer-columns">
+    <div class="footer-column">
+      <h4>Stay Connected</h4>
+      <p>Follow us on social media</p>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/yourpage" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fab fa-facebook-square"></i> Facebook</a>
+        <a href="https://www.instagram.com/yourprofile" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="https://twitter.com/yourhandle" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fab fa-twitter-square"></i> Twitter</a>
+      </div>
+    </div>
+    <div class="footer-column">
+      <h4>Customer Service</h4>
+      <a href="#">FAQs</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="#">Shipping Info</a>
+      <a href="#">Return Policy</a>
+    </div>
+    <div class="footer-column">
+      <h4>Extras</h4>
+      <a href="#">Gift Cards</a>
+      <a href="#">Affiliate Program</a>
+      <a href="#">Student Discount</a>
+    </div>
+    <div class="footer-column newsletter-form">
+      <h4>Newsletter</h4>
+      <form>
+        <input type="email" placeholder="Enter your email" required aria-label="Email for newsletter" />
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Online Tindahan. All rights reserved.</p>
+  </footer>
+
+  <button id="chat-button" class="chat-button" aria-label="Open chat">
+    Chat with us
+  </button>
+
+  <div id="chat-box" role="dialog" aria-modal="true" aria-labelledby="chat-header" tabindex="-1">
+    <div id="chat-header">
+      <span>Chat with us</span>
+      <button id="chat-close" aria-label="Close chat">&times;</button>
+    </div>
+    <div id="chat-messages" aria-live="polite"></div>
+    <div id="chat-input-container">
+      <input type="text" id="chat-input" placeholder="Type your message..." aria-label="Type your message" />
+      <button id="chat-send" aria-label="Send message">Send</button>
+    </div>
+  </div>
+
+  <script>
+    // Chat box logic
+    const chatButton = document.getElementById('chat-button');
+    const chatBox = document.getElementById('chat-box');
+    const chatClose = document.getElementById('chat-close');
+    const chatSend = document.getElementById('chat-send');
+    const chatInput = document.getElementById('chat-input');
+    const chatMessages = document.getElementById('chat-messages');
+
+    chatButton.addEventListener('click', () => {
+      chatBox.style.display = 'flex';
+      chatInput.focus();
+      chatButton.style.display = 'none';
+    });
+
+    chatClose.addEventListener('click', () => {
+      chatBox.style.display = 'none';
+      chatButton.style.display = 'block';
+    });
+
+    chatSend.addEventListener('click', sendMessage);
+    chatInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') sendMessage();
+    });
+
+    function sendMessage() {
+      const message = chatInput.value.trim();
+      if (message === '') return;
+      addMessage(`You: ${message}`, 'user');
+      chatInput.value = '';
+      setTimeout(() => {
+        addMessage('Support: Thank you for your message! We will get back to you shortly.', 'bot');
+      }, 1000);
+    }
+
+    function addMessage(text, sender) {
+      const messageEl = document.createElement('div');
+      messageEl.textContent = text;
+      messageEl.style.marginBottom = '10px';
+      messageEl.style.fontWeight = sender === 'user' ? '600' : '400';
+      messageEl.style.color = sender === 'user' ? '#008080' : '#333';
+      chatMessages.appendChild(messageEl);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+  </script>
+
+</body>
+</html>

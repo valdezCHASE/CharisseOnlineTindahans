@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chips - Flavors</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    main {
+      max-width: 500px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .product-image img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      margin-bottom: 20px;
+      border-radius: 10px;
+    }
+
+    select, input[type="number"], button {
+      margin-top: 10px;
+      padding: 8px;
+      font-size: 16px;
+    }
+
+    input[type="number"] {
+      width: 80px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo-title">
+        <img src="logocha-removebg-preview.png" alt="Online Tindahan Logo" class="logo">
+        <h1>Online Tindahan</h1>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="cart.html">Cart</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <label for="flavor-select">Select Flavor:</label><br>
+    <select id="flavor-select" onchange="updateProduct()">
+      <option value="sour">Sour</option>
+      <option value="cheese">Cheese</option>
+      <option value="barbeque">Barbeque</option>
+    </select>
+
+    <div class="product-image">
+      <img id="product-image" src="sour.webp" alt="Sour" class="product-img">
+    </div>
+
+    <h2 id="product-name">Sour Flavor</h2>
+    <p id="product-price">Price: ₱25</p>
+
+    <label for="quantity">Quantity:</label><br>
+    <input type="number" id="quantity" value="1" min="1"><br>
+
+    <button onclick="addToCart()">Add to Cart</button>
+  </main>
+
+  <footer>&copy; 2025 Online Tindahan</footer>
+
+  <script>
+    function updateProduct() {
+      const flavor = document.getElementById("flavor-select").value;
+      const productName = document.getElementById("product-name");
+      const productPrice = document.getElementById("product-price");
+      const productImage = document.getElementById("product-image");
+
+      if (flavor === "sour") {
+        productName.textContent = "Sour Flavor";
+        productPrice.textContent = "Price: ₱25";
+        productImage.src = "sour.webp";
+        productImage.alt = "Sour Flavor";
+      } else if (flavor === "cheese") {
+        productName.textContent = "Cheese Flavor";
+        productPrice.textContent = "Price: ₱25";
+        productImage.src = "cheese.webp";
+        productImage.alt = "Cheese Flavor";
+      } else if (flavor === "barbeque") {
+        productName.textContent = "Barbeque Flavor";
+        productPrice.textContent = "Price: ₱25";
+        productImage.src = "bebq.png";
+        productImage.alt = "Barbeque Flavor";
+      }
+    }
+
+    function addToCart() {
+      const flavor = document.getElementById("flavor-select").value;
+      const quantity = parseInt(document.getElementById("quantity").value);
+      const productName = document.getElementById("product-name").textContent;
+      const price = 25; // Fixed price
+
+      const product = {
+        name: productName,
+        flavor: flavor,
+        quantity: quantity,
+        price: price,
+        total: price * quantity
+      };
+
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push(product);
+      localStorage.setItem('cart', JSON.stringify(cart));
+
+      // Redirect to cart page
+      window.location.href = "cart.html";
+    }
+  </script>
+</body>
+</html>

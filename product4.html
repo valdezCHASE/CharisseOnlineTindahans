@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Shampoo & Soap - Variants</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background-color: #f9f9f9;
+    }
+
+    header {
+      background-color: #008080;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .logo-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .logo {
+      height: 40px;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #fff;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-image img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      margin-bottom: 20px;
+      border-radius: 10px;
+    }
+
+    select,
+    input[type="number"],
+    button {
+      margin-top: 10px;
+      padding: 8px;
+      font-size: 16px;
+    }
+
+    input[type="number"] {
+      width: 80px;
+      text-align: center;
+    }
+
+    button {
+      background-color: #008080;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #006666;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #eee;
+      font-size: 0.9rem;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-title">
+      <img src="logocha-removebg-preview.png" alt="Online Tindahan Logo" class="logo" />
+      <h1>Online Tindahan</h1>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="cart.html">Cart</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <label for="variant-select">Select Product:</label><br />
+    <select id="variant-select" onchange="updateProduct()">
+      <option value="creamsilk">Creamsilk Shampoo</option>
+      <option value="safeguard">Safe Guard Soap</option>
+      <option value="silka">Silka Soap</option>
+    </select>
+
+    <div class="product-image">
+      <img
+        id="product-image"
+        src="creamsilk2.webp"
+        alt="Creamsilk Shampoo"
+        class="product-img"
+      />
+    </div>
+
+    <h2 id="product-name">Creamsilk Shampoo</h2>
+    <p id="product-price">Price: ₱150</p>
+
+    <label for="quantity">Quantity:</label><br />
+    <input type="number" id="quantity" value="1" min="1" /><br />
+
+    <button onclick="addToCart()">Add to Cart</button>
+  </main>
+
+  <footer>&copy; 2025 Online Tindahan</footer>
+
+  <script>
+    function updateProduct() {
+      const variant = document.getElementById("variant-select").value;
+      const productName = document.getElementById("product-name");
+      const productPrice = document.getElementById("product-price");
+      const productImage = document.getElementById("product-image");
+
+      switch (variant) {
+        case "creamsilk":
+          productName.textContent = "Creamsilk Shampoo";
+          productPrice.textContent = "Price: ₱150";
+          productImage.src = "creamsilk2.webp";
+          productImage.alt = "Creamsilk Shampoo";
+          break;
+        case "safeguard":
+          productName.textContent = "Safe Guard Soap";
+          productPrice.textContent = "Price: ₱90";
+          productImage.src = "safeguard.jpg";
+          productImage.alt = "Safe Guard Soap";
+          break;
+        case "silka":
+          productName.textContent = "Silka Soap";
+          productPrice.textContent = "Price: ₱80";
+          productImage.src = "silka.jpg";
+          productImage.alt = "Silka Soap";
+          break;
+      }
+    }
+
+    function addToCart() {
+      const name = document.getElementById("product-name").textContent;
+      const price = parseInt(document.getElementById("product-price").textContent.replace(/\D/g, "")) || 0;
+      const quantity = parseInt(document.getElementById("quantity").value) || 1;
+
+      if (quantity < 1) {
+        alert("Please enter a valid quantity.");
+        return;
+      }
+
+      const cartItem = {
+        name: "Shampoo & Soap - " + name,
+        price: price,
+        quantity: quantity,
+      };
+
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push(cartItem);
+      localStorage.setItem("cart", JSON.stringify(cart));
+
+      window.location.href = "cart.html";
+    }
+  </script>
+
+</body>
+</html>

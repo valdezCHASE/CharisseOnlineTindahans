@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Softdrinks - Flavors</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    main {
+      max-width: 600px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .product-image img {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      margin-bottom: 20px;
+      border-radius: 10px;
+    }
+
+    select, input[type="number"], button {
+      margin-top: 10px;
+      padding: 8px;
+      font-size: 16px;
+    }
+
+    input[type="number"] {
+      width: 80px;
+      text-align: center;
+    }
+
+    button {
+      background-color: #008080;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #006666;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <div class="logo-title">
+        <img src="logocha-removebg-preview.png" alt="Online Tindahan Logo" class="logo">
+        <h1>Online Tindahan</h1>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="cart.html">Cart</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Flavor Selection -->
+    <label for="flavor-select">Select Flavor:</label><br>
+    <select id="flavor-select" onchange="updateProduct()">
+      <option value="cola">Coke</option>
+      <option value="royal">Royal</option>
+      <option value="dew">Mountain Dew</option>
+    </select>
+
+    <!-- Product Image -->
+    <div class="product-image">
+      <img id="product-image" src="cola.jpg" alt="Coke" class="product-img">
+    </div>
+
+    <h2 id="product-name">Coke</h2>
+    <p id="product-price">Price: ₱20</p>
+
+    <!-- Quantity Input -->
+    <label for="quantity">Quantity:</label><br>
+    <input type="number" id="quantity" value="1" min="1"><br>
+
+    <button onclick="addToCart()">Add to Cart</button>
+  </main>
+
+  <footer>&copy; 2025 Online Tindahan</footer>
+
+  <script>
+    function updateProduct() {
+      const flavor = document.getElementById("flavor-select").value;
+      const productName = document.getElementById("product-name");
+      const productPrice = document.getElementById("product-price");
+      const productImage = document.getElementById("product-image");
+
+      if (flavor === "cola") {
+        productName.textContent = "Coke";
+        productPrice.textContent = "Price: ₱20";
+        productImage.src = "cola.jpg";
+        productImage.alt = "Coke";
+      } else if (flavor === "royal") {
+        productName.textContent = "Royal";
+        productPrice.textContent = "Price: ₱20";
+        productImage.src = "royal2.webp";
+        productImage.alt = "Royal";
+      } else if (flavor === "dew") {
+        productName.textContent = "Mountain Dew";
+        productPrice.textContent = "Price: ₱20";
+        productImage.src = "dewincan.webp";
+        productImage.alt = "Mountain Dew";
+      }
+    }
+
+    function addToCart() {
+      const flavor = document.getElementById("flavor-select").value;
+      const name = document.getElementById("product-name").textContent;
+      const price = 20;
+      const quantity = parseInt(document.getElementById("quantity").value);
+
+      const cartItem = {
+        name: "Softdrink - " + name,
+        flavor: name,
+        price: price,
+        quantity: quantity
+      };
+
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push(cartItem);
+      localStorage.setItem("cart", JSON.stringify(cart));
+
+      window.location.href = "cart.html";
+    }
+  </script>
+
+</body>
+</html>

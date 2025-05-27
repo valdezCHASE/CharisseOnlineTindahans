@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Products</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    main {
+      text-align: center;
+    }
+
+    .product-list {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 50px;
+      padding: 40px;
+    }
+
+    .product-item {
+      width: 300px;
+      text-align: center;
+      border: 1px solid #ccc;
+      border-radius: 15px;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .product-item:hover {
+      transform: scale(1.08);
+    }
+
+    .product-item img {
+      width: 100%;
+      height: auto;
+      max-height: 250px;
+      object-fit: contain;
+      image-rendering: auto;
+      border-radius: 10px;
+    }
+
+    .product-item a {
+      display: block;
+      margin-top: 15px;
+      font-size: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #008080;
+    }
+
+    .product-item a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo-title">
+        <img src="logocha-removebg-preview.png" alt="Online Tindahan Logo" class="logo">
+        <h1>Online Tindahan</h1>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="cart.html">Cart</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="product-list">
+      <!-- Product 1 -->
+      <div class="product-item">
+        <a href="product1.html">
+          <img src="chips.webp" alt="Chips">
+          Piattos
+        </a>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-item">
+        <a href="product2.html">
+          <img src="softdrinks.jpeg" alt="Softdrinks">
+          Softdrinks
+        </a>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-item">
+        <a href="product3.html">
+          <img src="biscuits1.jpg" alt="Biscuits">
+          Cream O Biscuits
+        </a>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="product-item">
+        <a href="product4.html">
+          <img src="soapandhsampoo-removebg-preview.png" alt="Biscuits">
+          Soap and Shampoo
+        </a>
+      </div>
+      
+    </div>
+  </main>
+
+  <footer>&copy; 2025 Online Tindahan</footer>
+</body>
+</html>
